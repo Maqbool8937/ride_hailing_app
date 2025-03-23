@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:ride_hailing_app/view/screens/introduction_section/splash_screen.dart';
 import 'package:ride_hailing_app/view/screens/texi_order_section/complete_order_screen.dart';
 import 'package:ride_hailing_app/view/screens/texi_order_section/get_driver_screen.dart';
 import 'package:ride_hailing_app/view/screens/texi_order_section/looking_fortexi_screen.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       child: GetMaterialApp(debugShowCheckedModeBanner: false,
     
-       home: PromoRideDetailScreen(),
+      // home: PromoRideDetailScreen(),
+      home:SplashScreen(),
        ),
     );
   }
