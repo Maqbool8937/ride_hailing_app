@@ -19,7 +19,7 @@ class CommonButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         height: mediaQuerySize.height * 0.07.h,
-        width: mediaQuerySize.width * 0.9.w,
+        width: mediaQuerySize.width.w,
         decoration: BoxDecoration(
           color: AppColors.primaryColor,
           // color: isVisible? AppColors.blackColor:Color(0xffD9D9D9),

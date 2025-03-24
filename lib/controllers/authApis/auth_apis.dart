@@ -13,15 +13,17 @@ class AuthApis {
     required String confirmPassword,
     required String phoneNumber,
   }) async {
-    final url = Uri.parse("$baseUrl$signupEp?first_name=$firstName&last_name=$lastName &email=$email&username=$firstName &password= $password&password_confirmation=$confirmPassword&contact_number=$phoneNumber&gender=Male");
+    final url = Uri.parse("$baseUrl$signupEp");
     final headers = {"Content-Type": "application/json"};
+    final encodedBody = jsonEncode({"email": email, "first_name": firstName, "last_name": lastName, "username": "@$firstName", "password": password, "password_confirmation": confirmPassword, "contact_number": phoneNumber});
     final response = await http.post(
       url,
+      body: encodedBody,
       headers: headers,
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
       Map<String, dynamic> decodedBody = jsonDecode(response.body);
-
+      print(decodedBody);
       showSuccessSnackbar(decodedBody['message']);
       return true;
     } else {
@@ -39,9 +41,10 @@ class AuthApis {
     required String email,
     required String password,
   }) async {
-    final url = Uri.parse("$baseUrl$loginEp?email=$email&password=$password&user_type=rider");
+    final url = Uri.parse("$baseUrl$loginEp");
     final headers = {"Content-Type": "application/json"};
-    final response = await http.post(url, headers: headers);
+    final encodedBody = jsonEncode({"email": email, "password": password, "user_type": "rider"});
+    final response = await http.post(url, headers: headers, body: encodedBody);
     if (response.statusCode == 200 || response.statusCode == 201) {
       Map<String, dynamic> decodedBody = jsonDecode(response.body);
       // await MySharedPreferences.setBool('isLoggedIn', true);
@@ -69,9 +72,7 @@ class AuthApis {
   // }) async {
   //   final url = Uri.parse("$baseUrl$forgetPassword");
   //   final headers = {"Content-Type": "application/json"};
-  //   final encodedBody = jsonEncode({
-  //     "email": email,
-  //   });
+
   //   final response = await http.post(url, headers: headers, body: encodedBody);
   //   if (response.statusCode == 200 || response.statusCode == 201) {
   //     Map<String, dynamic> decodedBody = jsonDecode(response.body);
