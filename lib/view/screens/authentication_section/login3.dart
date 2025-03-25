@@ -123,7 +123,7 @@ class _Login1State extends State<Login3> {
                         text: 'Login',
                         onPressed: () {
                           if (key.currentState!.validate()) {
-                            authController.loginController(email: widget.email, password: passwordController.text).then(
+                            authController.loginController(email: widget.email, password: passwordController.text.trim()).then(
                               (value) {
                                 if (value == true) {
                                   print('Login sucessfully');

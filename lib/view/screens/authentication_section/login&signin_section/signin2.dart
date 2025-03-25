@@ -126,9 +126,9 @@ class _Login1State extends State<Signin2> {
                         if (key.currentState!.validate()) {
                           Get.to(() => Signin3(
                                 email: emailController.text,
-                                firstName: firstNamController.text,
-                                lastName: lastNameController.text,
-                                phoneNumber: phoneController.text,
+                                firstName: firstNamController.text.trim(),
+                                lastName: lastNameController.text.trim(),
+                                phoneNumber: phoneController.text.trim(),
                               ));
                         }
                       }),

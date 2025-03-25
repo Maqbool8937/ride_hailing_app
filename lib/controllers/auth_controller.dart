@@ -15,6 +15,8 @@ class AuthController extends GetxController {
     required String confirmPassword,
     required String phoneNumber,
   }) async {
+    print(password);
+    print(confirmPassword);
     try {
       signUpLoading.value = true;
       var userSigup = await AuthApis().userSignupMethod(

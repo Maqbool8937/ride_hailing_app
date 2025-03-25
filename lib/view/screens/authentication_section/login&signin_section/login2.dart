@@ -25,7 +25,7 @@ class _Login1State extends State<Login2> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: mediaQuery.width * 0.02.w, vertical: mediaQuery.height * 0.01.h),
+          padding: EdgeInsets.symmetric(horizontal: mediaQuery.width * 0.03.w, vertical: mediaQuery.height * 0.01.h),
           child: Form(
             key: key,
             child: Column(
@@ -86,7 +86,7 @@ class _Login1State extends State<Login2> {
                     onPressed: () {
                       if (key.currentState!.validate()) {
                         Get.to(() => Login3(
-                              email: emailController.text,
+                              email: emailController.text.trim(),
                             ));
                       }
                     }),

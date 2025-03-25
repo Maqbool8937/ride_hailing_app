@@ -97,7 +97,9 @@ class _Login1State extends State<Signin3> {
                         text: 'Signup',
                         onPressed: () {
                           if (key.currentState!.validate()) {
-                            authController.signUpUserController(email: widget.email, firstName: widget.firstName, lastName: widget.lastName, userEmail: widget.email, password: passwordController.text, confirmPassword: confirmPasswordController.text, phoneNumber: widget.phoneNumber).then(
+                            authController
+                                .signUpUserController(email: widget.email, firstName: widget.firstName, lastName: widget.lastName, userEmail: widget.email, password: passwordController.text.trim(), confirmPassword: confirmPasswordController.text.trim(), phoneNumber: widget.phoneNumber)
+                                .then(
                               (value) {
                                 if (value == true) {
                                   Get.to(() => Login2());
