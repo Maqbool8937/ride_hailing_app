@@ -8,15 +8,9 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final Widget? prefixIcon;
   final TextInputType keyboardType;
+  String? Function(String?)? validation;
 
-  const CustomTextField({
-    Key? key,
-    required this.labelText,
-    required this.controller,
-    this.obscureText = false,
-    this.prefixIcon,
-    this.keyboardType = TextInputType.text,
-  }) : super(key: key);
+  CustomTextField({Key? key, required this.labelText, required this.controller, this.obscureText = false, this.prefixIcon, this.keyboardType = TextInputType.text, this.validation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +21,8 @@ class CustomTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppColors.primaryColor),
       ),
-      child: TextField(
+      child: TextFormField(
+        validator: validation,
         controller: controller,
         obscureText: obscureText,
         keyboardType: keyboardType,
