@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ride_hailing_app/controllers/auth_controller.dart';
 import 'package:ride_hailing_app/view/screens/authentication_section/login&signin_section/login2.dart';
+import 'package:ride_hailing_app/view/screens/introduction_section/splash_screen.dart';
 
 
 void main() async {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       mediaQuerySize.width, mediaQuerySize.height), minTextAdapt: true, splitScreenMode: true,
        child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-         home: Login2(),
+        // home: Login2(),
+        home: SplashScreen(),
          ));
   }
 }

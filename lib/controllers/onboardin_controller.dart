@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:ride_hailing_app/view/screens/authentication_section/login&signin_section/login2.dart';
 import 'package:ride_hailing_app/view/screens/authentication_section/login1.dart';
 
 class OnboardingController extends GetxController {
@@ -31,12 +32,14 @@ class OnboardingController extends GetxController {
         curve: Curves.easeInOut,
       );
     } else {
+      //Get.off(()=>Login2());
       Get.off(() => Login1()); // Navigate to LoginScreen when last page is reached
     }
   }
 
   void skip() {
-     Get.off(() => Login1()); // 
+    Get.off(()=>Login2());
+    // Get.off(() => Login1()); // 
    // Get.off(() => LoginScreen()); // Skip directly to login screen
   }
 }

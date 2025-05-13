@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:ride_hailing_app/controllers/utils/app_colors.dart';
+import 'package:ride_hailing_app/view/screens/texi_order_section/promo_ride_detail_screen.dart';
 import 'package:ride_hailing_app/view/widgtes/horizontal_scroll_widget.dart';
 import 'package:ride_hailing_app/view/widgtes/trip_card_widget.dart';
 
@@ -131,7 +133,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text('Services',style: TextStyle(color: Colors.grey,fontSize: 15,fontWeight: FontWeight.w400),),
-                              Text('see all',style: TextStyle(color: Colors.grey,fontSize: 15,fontWeight: FontWeight.w400),),
+                              GestureDetector(
+                                onTap:(){
+                                  Get.off(()=>PromoRideDetailScreen());
+                                } ,
+                                child: Text('see all',style: TextStyle(color: Colors.grey,fontSize: 15,fontWeight: FontWeight.w400),)),
                             ],
                           ),
                         ),
